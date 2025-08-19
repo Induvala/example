@@ -24,7 +24,7 @@ const HeroSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 1000); // Auto-slide every 5s
+    }, 2000); // Auto-slide every 2s
     return () => clearInterval(interval);
   }, []);
 

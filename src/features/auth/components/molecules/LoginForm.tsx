@@ -20,23 +20,25 @@ export default function LoginForm() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
 
   const isPasswordValid = passwordRegex.test(password);
-  const isFormValid = userId.trim() !== "" && isPasswordValid &&password;
-  
+  const isFormValid = userId.trim() !== "" && isPasswordValid && password.trim() !=="" && userId =='IDIDID222';
 
   const handleLogin = () => {
     if (!userId) {
-      setError({ field: "userId", message: "Please enter your User ID." });
+      setError({ field: "userId", message: "Please enter your User ID.(IDIDID222)" });
       return;
     }
     if (!password) {
       setError({ field: "password", message: "Please enter your password." });
       return;
     }
-    // if (userId !== "IDIDID222" || password !== "Indu@1996") {
-    //   setError({ field: "general", message: "User ID or Password is incorrect." });
-    //   return;
-    // }
+    if (userId !== "IDIDID222" || !isPasswordValid) {
+      setError({ field: "general", message: "User ID or Password is incorrect." });
+      return;
+    }
+    if (error?.field === "userId" || error?.field === 'password' || error?.field === 'general') {
     setError(null);
+  }
+   console.log(isFormValid)
     if (!isFormValid) return;
     alert(`Login successful!\nUsername: ${userId}`);
     navigate("/main");
@@ -44,59 +46,74 @@ export default function LoginForm() {
   };
 
   return (
-      <div className="w-[500px] bg-white shadow-xl rounded-2xl p-10 border border-gray-200">
+    <>
+      <div className="w-full sm:w-[500px] bg-white shadow-xl rounded-2xl p-10 border border-gray-200">
         <h1 className="text-center text-3xl font-bold text-yellow-500 mb-8">LANDAS</h1>
 
         {/* User ID */}
-        <div className="mb-5 flex justify-between items-center">
+        <div className="mb-5 block md:flex justify-between items-center">
           <label className="block text-sm mb-1 w-[100px]">User ID</label>
+          <div className="block w-full">
           <BasicInput
             type="text"
             placeholder="Enter your User ID"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg outline-none focus:ring-2 focus:ring-yellow-400 ${
-              error?.field === "userId" ? "border border-red-500 bg-red-50" : "border-gray-300"
+            className={`w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2  ${
+             ( userId !== "IDIDID222"  &&  error?.field === "userId") ? "border bg-red-50 border-red-400 focus:ring-red-400 focus:border-red-400"
+                    : "border-gray-200 focus:ring-yellow-400 focus:border-yellow-400"
             }`}
           />
-          {error?.field === "userId" && (
+          {userId !== "IDIDID222"  && error?.field === "userId" && (
             <p className="text-sm text-red-500 mt-1">{error.message}</p>
           )}
+          </div>
         </div>
 
         {/* Password */}
-        <div className="mb-3 relative flex justify-between items-center">
-          <label className="block  w-[100px] text-sm mb-1">Password</label>
+        <div className="mb-3 block md:flex">
+          <label className="block mt-3 w-[100px] text-sm mb-1">Password</label>
+           <div className="block relative w-full">
           <BasicInput
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value)
+               if (
+      error?.field === "password" &&
+      passwordRegex.test(e.target.value)
+    ) {
+      setError(null);
+    }
+  }
+            }
             className={`w-full rounded-md px-4 py-3 pr-10 focus:outline-none focus:ring-2 ${
-                  password && !isPasswordValid
-                    ? "border-red-400 focus:ring-red-400 focus:border-red-400"
+                  (error?.field === "password" || (password && !isPasswordValid ))
+                    ? "border bg-red-50 border-red-200 focus:ring-red-400 focus:border-red-400"
                     : "border-gray-200 focus:ring-yellow-400 focus:border-yellow-400"
                 }`}
           />
            <button
                 type="button"
-                className="absolute inset-y-0 right-3 flex items-center text-gray-400"
+                className="absolute top-3 right-3 flex items-center text-gray-400"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />} 
               </button>
-              
           {error?.field === "password" && (
             <p className="text-sm text-red-500 mt-1">{error.message}</p>
           )}
-          {error?.field === "general" && (
+          {userId !== 'IDIDID222' && isPasswordValid && error?.field === "general" && (
             <p className="text-sm text-red-500 mt-1">{error.message}</p>
           )}
-        </div>
-           <p className={password && !isPasswordValid ?  'mt-2 text-sm text-red-400':"mt-2 text-sm text-gray-400" }>
+          <p className={password && !isPasswordValid ?  'mt-2 text-sm text-red-400':"mt-2 text-sm text-gray-400" }>
                 Password must be 8–16 characters, include uppercase, lowercase,
                 number, and special character.
               </p>
+                            </div>
+        </div>
+           
 
    
         
@@ -142,6 +159,11 @@ export default function LoginForm() {
         >
           Sign Up
         </button>
+        
       </div>
+      <footer className="py-4 fixed bottom-0 text-center text-sm text-gray-500 rounded-b-2xl">
+  Copyright © <a href="https://www.ldsb2small.com" className="hover:underline">WWW.ldsb2mall.com</a>   All right reserved
+</footer>
+</>
   );
 }
