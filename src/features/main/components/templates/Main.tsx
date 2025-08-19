@@ -8,21 +8,20 @@ import ChatSupportButton from '../../../../components/ChatSupport'
 import B2BBanner from '../../../../components/BannerLast'
 
 function Main() {
-  return (
-     <>
-      <Header />
-      <Hero />
-      <div className="font-sans max-w-6xl mx-auto px-6 py-10">
-      <SeasonSlider/>
-      <ProductSection/>
-      <ProductSection/>
-      <B2BBanner/>
-      <ChatSupportButton/>
-     
-    </div>
-     <Footer />
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <Hero />
+            <div className="font-sans max-w-6xl mx-auto px-6 py-10">
+                <SeasonSlider />
+                <ProductSection />
+                <ProductSection />
+                <B2BBanner />
+                <ChatSupportButton />
+            </div>
+            <Footer />
+        </>
+    )
 }
 
 export default Main

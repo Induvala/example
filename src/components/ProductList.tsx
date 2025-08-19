@@ -45,10 +45,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* Price and label */}
       <div className="flex justify-start items-center space-x-3">
-       <span className="px-2 py-0.5 text-xs border border-yellow-300 rounded-md text-yellow-700 font-semibold">
-  Warehouse Code (6 characters)
-</span>
-
+        <span className="px-2 py-0.5 text-xs border border-yellow-300 rounded-md text-yellow-700 font-semibold">
+          Warehouse Code (6 characters)
+        </span>
         <span className="text-lg font-bold">{price}</span>
       </div>
     </div>

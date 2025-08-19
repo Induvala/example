@@ -40,12 +40,9 @@ const ProductSection: React.FC = () => {
     return (
         <section className="max-w-7xl mx-auto py-10 px-4 text-center">
             <h2 className="text-lg font-semibold">
-
                 Product display title goes here.  </h2>
-
             <p className="text-sm text-gray-500 mb-8">
                 Subtitle text goes here if needed.</p>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {products.map((product) => (
                     <ProductCard
