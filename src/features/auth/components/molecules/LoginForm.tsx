@@ -13,8 +13,6 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
-
-
   // Password validation
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
@@ -151,7 +149,7 @@ export default function LoginForm() {
           Sign Up
        </button>
       </div>
-      <footer className="py-4 fixed bottom-0 text-center text-sm text-gray-500 rounded-b-2xl">
+      <footer className="py-4 text-center text-sm text-gray-500 rounded-b-2xl">
         Copyright © <a href="https://www.ldsb2small.com" className="hover:underline">WWW.ldsb2mall.com</a>   All right reserved
       </footer>
     </>

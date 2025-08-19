@@ -75,7 +75,7 @@ const SeasonSlider: React.FC = () => {
 
                 <div
                     ref={sliderRef}
-                    className="flex gap-4 overflow-x-hidden scroll-smooth scrollbar-hide"
+                    className="flex gap-4 mt-10 overflow-x-hidden scroll-smooth scrollbar-hide"
                 >
                     {items.map((item) => (
                         <div
@@ -95,11 +95,11 @@ const SeasonSlider: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="w-full flex justify-center items-center space-x-2 mt-4">
+                <div className="w-full flex justify-center items-center mt-4">
                     {items.map((_, index) => (
                         <div
                             key={index}
-                            className={`w-3 h-1.5 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-yellow-400 w-6" : "bg-gray-400 w-3"
+                            className={`w-8 h-1 transition-all duration-300 ${index === currentIndex ? "bg-yellow-400 w-6" : "bg-gray-400 w-3"
                                 }`}
                         />
                     ))}

@@ -1,61 +1,57 @@
 import React from "react";
-import ProductCard from "./ProductList";
 
-const products = [
-    {
-        id: 1,
-        image: "https://picsum.photos/200/300",
-        colors: ["#f5ba0a", "#574f19", "#4c4c4c", "#ffffff", "#f5ba0a", "#f5ba0a", "#f5ba0a", "#f5ba0a"],
-        title: "Product name is displayed. Product name is displayed...",
-        subtitle: "{Brand} Group Code - Color Name",
-        price: "$000,000"
-    },
-    {
-        id: 2,
-        image: "https://picsum.photos/200/300",
-        colors: ["#f5ba0a", "#574f19", "#4c4c4c", "#ffffff", "#f5ba0a", "#f5ba0a", "#f5ba0a", "#f5ba0a"],
-        title: "Product name is displayed. Product name is displayed...",
-        subtitle: "{Brand} Group Code - Color Name",
-        price: "$000,000"
-    }, {
-        id: 3,
-        image: "https://picsum.photos/200/300",
-        colors: ["#f5ba0a", "#574f19", "#4c4c4c", "#ffffff", "#f5ba0a", "#f5ba0a", "#f5ba0a", "#f5ba0a"],
-        title: "Product name is displayed. Product name is displayed...",
-        subtitle: "{Brand} Group Code - Color Name",
-        price: "$000,000"
-    }, {
-        id: 4,
-        image: "https://picsum.photos/200/300",
-        colors: ["#f5ba0a", "#574f19", "#4c4c4c", "#ffffff", "#f5ba0a", "#f5ba0a", "#f5ba0a", "#f5ba0a"],
-        title: "Product name is displayed. Product name is displayed...",
-        subtitle: "{Brand} Group Code - Color Name",
-        price: "$000,000"
-    },
-    // you can duplicate the above object or add new products
-    // here I added 4 copies for demo:
-];
+interface ProductCardProps {
+  image: string;
+  colors: string[];
+  title: string;
+  subtitle: string;
+  price: string;
+}
 
-const ProductSection: React.FC = () => {
-    return (
-        <section className="max-w-7xl mx-auto py-10 px-4 text-center">
-            <h2 className="text-lg font-semibold">
-                Product display title goes here.  </h2>
-            <p className="text-sm text-gray-500 mb-8">
-                Subtitle text goes here if needed.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-                {products.map((product) => (
-                    <ProductCard
-                        image={product.image}
-                        colors={product.colors}
-                        title={product.title}
-                        subtitle={product.subtitle}
-                        price={product.price}
-                    />
-                ))}
-            </div>
-        </section>
-    );
+const ProductCard: React.FC<ProductCardProps> = ({
+  image,
+  colors,
+  title,
+  subtitle,
+  price,
+}) => {
+  return (
+    <div className="">
+      {/* Product Image */}
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-auto object-cover rounded-md"
+      />
+
+      {/* Color Dots */}
+      <div className="flex space-x-2 justify-start pt-5">
+        {colors.map((color, i) => (
+          <span
+            key={i}
+            className={`w-4 h-4 rounded-full border border-gray-300 cursor-pointer`}
+            style={{ backgroundColor: color }}
+          />
+        ))}
+      </div>
+
+      {/* Title */}
+      <p className="text-sm font-semibold truncate  text-left p-1" title={title}>
+        {title}
+      </p>
+
+      {/* Subtitle */}
+      <p className="text-xs text-gray-600 p-1 text-left">{subtitle}</p>
+
+      {/* Price and label */}
+      <div className="flex justify-start items-center space-x-3">
+        <span className="px-2 py-0.5 text-xs border border-yellow-300 rounded-md text-yellow-700 font-semibold">
+          Warehouse Code (6 characters)
+        </span>
+        <span className="text-lg font-bold">{price}</span>
+      </div>
+    </div>
+  );
 };
 
-export default ProductSection;
+export default ProductCard;

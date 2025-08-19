@@ -14,7 +14,7 @@ const Header = () => {
 
     return (
         <header className="bg-black text-white shadow-md sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-10 py-3 flex justify-between items-center">
                 {/* Logo */}
                 <div className="text-yellow-400 font-bold text-2xl">LANDAS</div>
 
@@ -24,7 +24,7 @@ const Header = () => {
                         <a
                             key={item}
                             href="#"
-                            className="hover:text-yellow-400 text-sm font-medium"
+                            className="hover:text-yellow-400 text-sm w-24 font-medium"
                         >
                             {item}
                         </a>
@@ -39,7 +39,7 @@ const Header = () => {
                     <a href="#" aria-label="Search">
                         <Search size={20} />
                     </a>
-                    <a href="#" aria-label="User/Login">
+                    <a href='/' aria-label="User/Login">
                         <User size={20} />
                     </a>
                 </div>

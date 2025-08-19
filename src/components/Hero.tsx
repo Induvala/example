@@ -50,11 +50,11 @@ const HeroSlider = () => {
             ))}
 
             {/* Dots Navigation */}
-            <div className="absolute bottom-5 w-full flex justify-center items-center space-x-2">
+            <div className="absolute bottom-5 w-full flex justify-center items-center">
                 {slides.map((_, index) => (
                     <div
                         key={index}
-                        className={`w-3 h-1.5 rounded-full transition-all duration-300 ${index === current ? "bg-yellow-400 w-6" : "bg-gray-400 w-6"
+                        className={`w-8 h-1 transition-all duration-300 ${index === current ? "bg-yellow-400 w-6" : "bg-gray-400 w-6"
                             }`}
                     />
                 ))}

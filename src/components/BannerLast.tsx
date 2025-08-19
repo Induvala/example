@@ -2,7 +2,7 @@ import React from "react";
 
 const B2BBanner: React.FC = () => {
     return (
-        <section className="bg-black text-white py-16 px-16 relative overflow-hidden">
+        <section className="mt-10 bg-black text-white py-16 px-16 relative overflow-hidden">
             <div className="max-w-6xl mx-auto space-y-2">
                 <h2 className="text-2xl font-bold">B2B Specialized Clothing Mall!</h2>
                 <p className="text-xl font-semibold">
