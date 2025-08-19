@@ -1,11 +1,10 @@
-import React from 'react'
+import B2BBanner from '../../../../components/BannerLast'
+import ChatSupportButton from '../../../../components/ChatSupport'
+import Footer from '../../../../components/Footer'
 import Header from '../../../../components/Header'
 import Hero from '../../../../components/Hero'
-import Footer from '../../../../components/Footer'
-import SeasonSlider from '../../../../components/SeasonSlider'
 import ProductSection from '../../../../components/ProductSection'
-import ChatSupportButton from '../../../../components/ChatSupport'
-import B2BBanner from '../../../../components/BannerLast'
+import SeasonSlider from '../../../../components/SeasonSlider'
 
 function Main() {
     return (
